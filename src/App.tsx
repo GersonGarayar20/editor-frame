@@ -14,8 +14,8 @@ export default function App() {
           const deltaX = event.clientX - startX;
           setMove(deltaX * 2);
           setW(
-            w + move < 200
-              ? 200
+            w + move < 320
+              ? 320
               : w + move > containerRef.current.offsetWidth
               ? containerRef.current.offsetWidth
               : w + move
@@ -24,8 +24,8 @@ export default function App() {
           const deltaX = event.clientX - startX;
           setMove(-deltaX * 2);
           setW(
-            w + move < 200
-              ? 200
+            w + move < 320
+              ? 320
               : w + move > containerRef.current.offsetWidth
               ? containerRef.current.offsetWidth
               : w + move
@@ -44,21 +44,27 @@ export default function App() {
   };
 
   return (
-    <main className="bg-black h-screen">
+    <main className=" h-screen">
       <section ref={containerRef} className="border h-full">
         <article
-          className="h-96 m-auto relative select-none"
-          style={{ maxWidth: w + move, minWidth: 200 }}
+          className="h-full m-auto relative select-none"
+          style={{ maxWidth: w + move, minWidth: 320 }}
         >
           <div
-            className="absolute left-0 top-1/2 w-4 h-20 -translate-y-10 border bg-green-300 hover:bg-green-400 active:bg-green-500 cursor-e-resize"
+            className="absolute left-0 top-1/2 w-4 h-20 -translate-y-10 bg-green-300 hover:bg-green-400 active:bg-green-500 cursor-e-resize"
             onMouseDown={(e) => handleMouseDown(e, "left")}
           ></div>
           <div
-            className="absolute right-0 top-1/2 w-4 h-20 -translate-y-10 border bg-red-300 hover:bg-red-400 active:bg-red-500 cursor-e-resize"
+            className="absolute right-0 top-1/2 w-4 h-20 -translate-y-10 bg-red-300 hover:bg-red-400 active:bg-red-500 cursor-e-resize"
             onMouseDown={(e) => handleMouseDown(e, "right")}
           ></div>
-          <div className="border m-4 h-full shadow-2xl text-white">
+          <div
+            className="m-4 h-full text-white rounded-lg"
+            style={{
+              border: "1px solid #dfe3e8",
+              boxShadow: "0 1px 13px 4px #00000014",
+            }}
+          >
             contenido
           </div>
         </article>
